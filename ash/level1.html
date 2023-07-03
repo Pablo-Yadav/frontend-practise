@@ -1,0 +1,473 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #00b289;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #00b289;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+        }
+        body {
+            background-color: #f8f4f4;
+        }
+        header {
+            height: 7%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bonsai {
+            height: 100%;
+            width: 50%;
+            margin: -20px;
+        }
+        .dropdown {
+            width: 20%;
+            color: #4c4d5f;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.8%;
+        }
+        .menu {
+            color: #4c4d5f;
+            background-color: #f8f4f4;
+            border: 0px;
+            font: inherit;
+        }
+        .logo {
+            color: #00b289;
+            font-size: 2rem;
+        }
+        .login {
+            width: 35%;
+            background-color: #fff;
+            color: #00b289;
+            border: 1px solid #00b289;
+            border-radius: 5px;
+            padding-top: 10%;
+            padding-left: 5%;
+            text-decoration: none;
+        }
+        .startfree {
+            width: 60%;
+            background-color: #00b289;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding-top: 10%;
+            padding-left: 5%;
+            text-decoration: none;
+        }
+        .buttons {
+            width: 12%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .pricing {
+            color: #4c4d5f;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 6%;
+        }
+        .time {
+            display: flex;
+            justify-content: space-between;
+        }
+        .planspricing {
+            margin-left: 25%;
+            margin-right: 25%;
+            padding-top: 3%;
+        }
+        .subscribe {
+            display: flex;
+            justify-content: space-between;
+        }
+        .workflow {
+            padding: 5%;
+            width: 38%;
+            border: 1px solid #4c4d5f;
+        }
+        .cost {
+            padding-top: 5%;
+            padding-bottom: 5%;
+            border-bottom: 2px solid #00b289;
+            font-size: 2rem;
+        }
+        .row1 {
+            font-size: 1.2rem;
+        }
+        .first {
+            padding-top: 10%;
+        }
+        .benifits {
+            padding-bottom: 4%;
+        }
+        .planning {
+            font-size: 2rem;
+        }
+        .time {
+            width: 30%;
+            padding-top: 2%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .big {
+            width: 100%;
+            height: 10%;
+            padding-bottom: 15%;
+        }
+        .addons {
+            margin-left: 25%;
+            margin-right: 25%;
+            padding-top: 5%;
+        }
+        .charge {
+            font-size: 1.4rem;
+            padding-left: 30%;
+            padding-bottom: 5%;
+        }
+        .rows {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            padding: 4%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            box-shadow: 2px 2px 2px 2px #4c4d5f;
+        }
+        .sector {
+            font-size: 1.2rem;
+        }
+        .green {
+            color: #00b289;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .business {
+            background-color: rgb(203, 237, 237);
+            display: flex;
+            justify-content: space-between;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 5%;
+            padding: 4%;
+            font-size: 2rem;
+        }
+        .freestart {
+            background-color: #00b289;
+            color: #fff;
+            margin-top: 8%;
+            margin-bottom: 8%;
+            border: 0px;
+            border-radius: 5px;
+        }
+        .freq {
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 1%;
+        }
+        .ques {
+            font-size: 1.2rem;
+            margin-left: 30%;
+            margin-right: 30%;
+            padding-bottom: 1%;
+            margin-bottom: 1%;
+            background-color: #fff;
+            border: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            width: 40%;
+        }
+        .others {
+            display: flex;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 8%;
+            justify-content: space-between;
+        }
+        .heading {
+            font-size: 1.2em;
+            font-weight: bolder;
+            margin-bottom: 10%;
+        }
+        .box {
+            margin-bottom: 40%;
+        }
+        .text {
+            margin-bottom: 4%;
+        }
+        .freeShippingRibbon {
+            height: 35px;
+            width: 180px;
+            background-color: #9C1B21;
+            /* position: absolute; */
+            top: 48px;
+            right: -6px;
+            text-align: center;
+            color: #FFF;
+            font-weight: 600;
+            font-size: 24px;
+            white-space: nowrap;
+            -webkit-transform: rotate(35deg);
+            -moz-transform: rotate(35deg);
+            -ms-transform: rotate(35deg);
+            -o-transform: rotate(35deg);
+            transform: rotate(35deg);
+        }
+    </style>
+</head>
+<body class="page">
+    <header>
+        <div class="logo">
+            <img class="bonsai" src="https://cdn.dribbble.com/users/677572/screenshots/16264314/451.png" alt="bonsai"> bonsai</div>
+        <div class="dropdown">
+            <div>
+                <select class="menu">
+                    <option value="">Product</option>
+                    <option value="">Hello</option>
+                    <option value="">Hello</option>
+                    <option value="">Hello</option>
+                </select>
+            </div>
+            <div>
+                <select class="menu">
+                    <option value="">Templates</option>
+                    <option value="">Hello</option>
+                    <option value="">Hello</option>
+                    <option value="">Hello</option>
+                </select>
+            </div>
+            <div>Pricing</div>
+            <div>Reviews</div>
+        </div>
+        <div class="buttons">
+            <a href="https://www.google.com/" target="_blank" class="login">LOG IN</a>
+            <a href="https://www.google.com/" target="_blank" class="startfree">START FREE</a>
+        </div>
+    </header>
+    <div class="planspricing">
+        <div class="pricing">
+            <div class="planning">
+                Plans & Pricing
+            </div>
+            <div class="time">
+                <div>MONTHLY</div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                <div>YEARLY</div>
+            </div>
+        </div>
+        <div class="subscribe">
+            <div class="workflow">
+                <div class="row1">Workflow</div>
+                <div class="cost">$19/MONTH</div>
+                <div class="benifits first">&#9989 Unlimited Clients & Projects</div>
+                <div class="benifits">&#9989 Proposals</div>
+                <div class="benifits">&#9989 Contracts</div>
+                <div class="benifits">&#9989 Invoices & Payments</div>
+                <div class="benifits">&#9989 Client CRM</div>
+                <div class="benifits">&#9989 Project Management</div>
+                <div class="benifits">&#9989 Task & Time Tracking</div>
+                <div class="benifits">&#9989 iOS, Android, Chrome & Mac Apps</div>
+                <button class="big startfree">START FREE</button>
+            </div>
+            <div class="workflow">
+                <div class="row1">Workflow Plus</div>
+                <div class="cost">$29/MONTH</div>
+                <div class="benifits first">&#9989 Everything in Workflow, plus...</div>
+                <div class="benifits">&#9989 White labelled client experience</div>
+                <div class="benifits">&#9989 Client forms & questionnaires</div>
+                <div class="benifits">&#9989 Workflow automations</div>
+                <div class="benifits">&#9989 Subcontracting (client-mode)</div>
+                <div class="benifits">&#9989 Calendly integration</div>
+                <div class="benifits">&#9989 Client portal</div>
+                <div class="benifits">&#9989 Priority support</div>
+                <button type="menu" class="big startfree">START FREE</button>
+            </div>
+        </div>
+    </div>
+    <div class="addons">
+        <div class="charge">Super charge your work with add-ons</div>
+        <div class="rows">
+            <div>
+                <div class="sector">Collaborators</div>
+                <div>Invite others users to specific projects for limited access and functionality.</div>
+            </div>
+            <div class="sector">FREE</div>
+        </div>
+        <div class="rows">
+            <div>
+                <div class="sector">Partners</div>
+                <div>Invite others users for full account access and company management.</div>
+            </div>
+            <div class="sector">FREE</div>
+        </div>
+        <div class="rows">
+            <div>
+                <div class="sector">Partners</div>
+                <div>Invite others users to specific projects for limited access and functionality.</div>
+            </div>
+            <div>
+                <div class="sector">$9</div>
+                <div>/MONTH</div>
+            </div>
+        </div>
+        <div class="rows">
+            <div>
+                <div class="sector">Bonsai Tax</div>
+                <div>Track expenses, identify write-offs, and estimate quarterly taxes easily.</div>
+            </div>
+            <div>
+                <div class="sector">$10</div>
+                <div>/MONTH</div>
+            </div>
+        </div>
+        <a class="green" href="https://www.google.com/">LEARN MORE ></a>
+    </div>
+    <div class="business">
+        <div>
+            <div>
+                It's <div style="color: #00b289; width: min-content;">your</div> business.
+            </div>
+            <div>We're here to help it grow it.</div>
+        </div>
+        <button class="freestart">START FREE</button>
+    </div>
+    <div class="questions">
+        <div class="freq" style="color: #00b289; font-size: 1.4rem;">Frequently Asked Questions</div>
+        <div>
+            <select class="ques">
+                <option>How does the 14 day trail work?</option>
+                <option>Works perfectly fine</option>
+            </select>
+            <select class="ques">
+                <option>Can I change plans anytime?</option>
+                <option>Sure</option>
+            </select>
+            <select class="ques">
+                <option>What is your refund policy?</option>
+                <option>Please ask google.</option>
+            </select>
+            <select class="ques">
+                <option>How do I pause my Bonsai subscription?</option>
+                <option>Just like that.</option>
+            </select>
+        </div>
+    </div>
+    <div class="others">
+        <div class="col1">
+            <div class="box">
+                <div class="heading">PRODUCT</div>
+                <div class="text">Proposals</div>
+                <div class="text">Contracts</div>
+                <div class="text">Invoicing</div>
+                <div class="text">Client CRM</div>
+                <div class="text">Time Tracking</div>
+                <div class="text">Task Tracking</div>
+                <div class="text">Forms</div>
+                <div class="text">Accounting</div>
+                <div class="text">Bonsai Tax</div>
+                <div class="text">Bonsai Cash</div>
+            </div>
+            <div class="box">
+                <div class="heading">PRICING</div>
+                <div class="text">Bonsai Reviews</div>
+            </div>
+        </div>
+        <div class="col2">
+            <div class="box">
+                <div class="heading">FREE RESOURCES</div>
+                <div class="text">Freelance Resources</div>
+                <div class="text">Freelance Blog by Bonsai</div>
+                <div class="text">How to Write a Contract</div>
+                <div class="text">Online Signature Maker</div>
+                <div class="text">Self Employed Taxes Hub</div>
+                <div class="text">Self Employed Tax Calculator</div>
+                <div class="text">Self Employed Tax Deductions</div>
+            </div>
+            <div class="box">
+                <div class="heading">TEMPLATES</div>
+                <div class="text">Invioce Templates</div>
+                <div class="text">Proposal Templates</div>
+                <div class="text">Contract Templates</div>
+                <div class="text">Agreement Templates</div>
+                <div class="text">Scope of Work Templates</div>
+                <div class="text">Quote Templates</div>
+                <div class="text">Credit Note Templates</div>
+                <div class="text">Estimate Templates</div>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="box">
+                <div class="heading">BONSAI</div>
+                <div class="text">About</div>
+                <div class="text">Careers</div>
+                <div class="text">Support</div>
+                <div class="text">Linkedin</div>
+                <div class="text">Twitter</div>
+                <div class="text">Privacy policy</div>
+                <div class="text">Legal</div>
+                <div class="text">Attributes</div>
+                <div class="text">Write for Us</div>
+                <div class="text">Comparisions</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
